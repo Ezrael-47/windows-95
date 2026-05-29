@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Windows 95 • Desktop Experience</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="desktop" id="desktop">
+    <div class="desktop-icon" data-window="mycomputer" ondblclick="openWindow('mycomputer')">
+      <div class="icon-image">💻</div>
+      <span>My Computer</span>
+    </div>
+    <div class="desktop-icon" data-window="recycle" ondblclick="openWindow('recycle')">
+      <div class="icon-image">🗑️</div>
+      <span>Recycle Bin</span>
+    </div>
+    <div class="desktop-icon" data-window="notepad" ondblclick="openWindow('notepad')">
+      <div class="icon-image">📄</div>
+      <span>Notepad</span>
+    </div>
+    <div class="desktop-icon" data-window="calculator" ondblclick="openWindow('calculator')">
+      <div class="icon-image">🧮</div>
+      <span>Calculator</span>
+    </div>
+    <div class="desktop-icon" data-window="about" ondblclick="openWindow('about')">
+      <div class="icon-image">ℹ️</div>
+      <span>About Win95</span>
+    </div>
+  </div>
+
+  <div id="windowsContainer"></div>
+
+  <div class="taskbar">
+    <div class="start-button" id="startButton">
+      <span>🪟</span> Start
+    </div>
+    <div class="taskbar-windows" id="taskbarWindows"></div>
+    <div class="tray" id="clockTray">🕒 <span id="clockDisplay">12:00 PM</span></div>
+  </div>
+
+  <div class="start-menu" id="startMenu">
+    <div class="start-menu-item" data-action="mycomputer">💻 My Computer</div>
+    <div class="start-menu-item" data-action="notepad">📄 Notepad</div>
+    <div class="start-menu-item" data-action="calculator">🧮 Calculator</div>
+    <div class="start-menu-item" data-action="recycle">🗑️ Recycle Bin</div>
+    <div class="start-menu-item" data-action="about">ℹ️ About Windows 95</div>
+    <div class="start-menu-item" style="border-top:2px solid #808080;" data-action="shutdown">⏻ Shut Down...</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

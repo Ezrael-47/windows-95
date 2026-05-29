@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #008080;
+  font-family: 'Microsoft Sans Serif', 'MS Sans Serif', 'Segoe UI', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+}
+
+.desktop {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px);
+  background: #008080;
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-start;
+  gap: 6px;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  padding: 6px 4px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin: 2px;
+}
+
+.desktop-icon:hover {
+  background: rgba(0, 0, 128, 0.15);
+  border: 1px dotted rgba(255, 255, 255, 0.6);
+}
+
+.desktop-icon.selected {
+  background: rgba(0, 0, 128, 0.35);
+  border: 1px dotted white;
+}
+
+.icon-image {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.5));
+}
+
+.window {
+  position: absolute;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: 1px 1px 0 0 #000;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  resize: both;
+  overflow: auto;
+  z-index: 1;
+}
+
+.window.active {
+  z-index: 100;
+}
+
+.title-bar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: white;
+  padding: 3px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: move;
+  border-bottom: 1px solid #404040;
+}
+
+.title-bar-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.win-btn {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: black;
+  line-height: 1;
+}
+
+.win-btn:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.window-content {
+  padding: 10px;
+  background: #ffffff;
+  flex: 1;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  margin: 2px;
+  font-size: 13px;
+  color: #000;
+  overflow: auto;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  z-index: 1000;
+  box-shadow: 0 -1px 0 #808080;
+}
+
+.start-button {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 12px;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.start-button:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.taskbar-windows {
+  display: flex;
+  flex: 1;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.taskbar-item {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskbar-item.active {
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #b0b0b0;
+  font-weight: bold;
+}
+
+.tray {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 2px inset #ffffff;
+  height: 30px;
+  font-size: 12px;
+  background: #c0c0c0;
+}
+
+.start-menu {
+  position: fixed;
+  bottom: 44px;
+  left: 4px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  width: 200px;
+  z-index: 2000;
+  display: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.start-menu.visible {
+  display: block;
+}
+
+.start-menu-item {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.start-menu-item:hover {
+  background: #000080;
+  color: white;
+}
